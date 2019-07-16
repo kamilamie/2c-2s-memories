@@ -33,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/signUp").permitAll()
@@ -47,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("login")
                 .defaultSuccessUrl("/profile")
                 .loginPage("/login");
-        http.csrf().disable();
+
     }
 
     @Bean

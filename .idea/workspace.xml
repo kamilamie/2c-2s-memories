@@ -93,8 +93,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ftl" value="20" />
-          <entry key="java" value="108" />
+          <entry key="ftl" value="31" />
+          <entry key="java" value="110" />
           <entry key="properties" value="17" />
           <entry key="sql" value="63" />
           <entry key="txt" value="19" />
@@ -103,8 +103,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="FTL" value="20" />
-          <entry key="JAVA" value="108" />
+          <entry key="FTL" value="31" />
+          <entry key="JAVA" value="110" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="Properties" value="17" />
           <entry key="SQL" value="63" />
@@ -114,10 +114,10 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="ftl" value="5" />
-          <entry key="java" value="35" />
+          <entry key="java" value="37" />
           <entry key="js" value="1" />
           <entry key="my_user" value="1" />
-          <entry key="properties" value="2" />
+          <entry key="properties" value="3" />
           <entry key="sql" value="2" />
           <entry key="xml" value="1" />
         </counts>
@@ -126,9 +126,9 @@
         <counts>
           <entry key="Database Element" value="1" />
           <entry key="FTL" value="5" />
-          <entry key="JAVA" value="35" />
+          <entry key="JAVA" value="37" />
           <entry key="JavaScript" value="1" />
-          <entry key="Properties" value="2" />
+          <entry key="Properties" value="3" />
           <entry key="Scratch" value="2" />
           <entry key="XML" value="1" />
         </counts>
@@ -137,30 +137,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/repositories/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/security/config/SecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/security/details/UserDetailsImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -231,15 +207,32 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.ftl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/signUp.ftl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-617" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/security/config/SecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -255,19 +248,19 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/services/SignUpServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/services/SignUpService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/login.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/profile.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/itis/config/MvcConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/app/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/controllers/ProfileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/controllers/SignUpController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/forms/UserForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/models/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/repositories/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/itis/security/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/security/details/UserDetailsImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/security/details/UserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/itis/transfer/UserDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/itis/config/MvcConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/profile.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/itis/security/config/SecurityConfig.java" />
       </list>
     </option>
   </component>
@@ -336,15 +329,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="itis" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="memories" type="b2602c69:ProjectViewProjectNode" />
-              <item name="memories" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="itis" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="memories" type="b2602c69:ProjectViewProjectNode" />
@@ -478,7 +462,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563295728671" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563298635781" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -533,15 +517,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563287483269</updated>
-      <workItem from="1563287489297" duration="7554000" />
+      <workItem from="1563287489297" duration="10245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7554000" />
+    <option name="totallyTimeSpent" value="10245000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
@@ -562,7 +546,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.47308782" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47308782" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -626,9 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../SecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100" />
@@ -645,16 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/config/MvcConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,16 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/security/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/security/details/UserDetailsImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -785,13 +746,36 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/config/MvcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/signUp.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-617" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/itis/security/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
