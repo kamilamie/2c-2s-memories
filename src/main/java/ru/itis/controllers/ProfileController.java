@@ -36,7 +36,8 @@ public class ProfileController {
             if (currentUserOptional.isPresent()) {
                 User current_user = currentUserOptional.get();
                 if (user.getId().equals(current_user.getId())) return "profile";
-                model.addAttribute("current_user", from(current_user));
+                model.addAttribute("currentUserId", current_user.getId());
+                model.addAttribute("currUserFollowings", current_user.getFollowings());
             }
         }
         return "user-profile";

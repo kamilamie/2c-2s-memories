@@ -19,8 +19,18 @@
                     <span style="font-size: 35px">${user.login}</span>
                 </div>
                 <div class="btn-group">
+                    <#assign followedByCurrentUser = false>
+                        <#list user.followers as follower>
+                            <#if follower.id == currentUserId>
+                                <#assign followedByCurrentUser = true>
+                            </#if>
+                        </#list>
                     <button class="btn bg-white border">
+                        <#if !followedByCurrentUser>
                         <span class="fa fa-user-plus"></span> Follow
+                        <#else>
+                        <span class="fa fa-user-times"></span> Unfollow
+                        </#if>
                     </button>
                     &nbsp;
                     <button class="btn btn-dark"><span class="fa fa-commenting-o"></span> Message</button>
@@ -78,8 +88,8 @@
                                                          class="round-img-sm shadow mr-3">
                                                     <a href="/profile/${follower.login}">${follower.login}</a>
                                                 </div>
-                                                <#if current_user.login!=follower.login>
-                                                    <#if current_user.followings?seq_contains(follower)>
+                                                <#if currentUserId!=follower.id>
+                                                    <#if currUserFollowings?seq_contains(follower)>
                                                     <button class="btn btn-danger">Unfollow</button>
                                                     <#else>
                                                     <button class="btn btn-light">Follow</button>
@@ -99,8 +109,8 @@
                                                          class="round-img-sm shadow mr-3">
                                                     <a href="/profile/${following.login}">${following.login}</a>
                                                 </div>
-                                                <#if current_user.login!=following.login>
-                                                    <#if (current_user.followings?seq_contains(following))||(current_user==following)>
+                                                <#if currentUserId!=following.id>
+                                                    <#if currUserFollowings?seq_contains(following)>
                                                         <button class="btn btn-danger">Unfollow</button>
                                                     <#else>
                                                         <button class="btn btn-light">Follow</button>
