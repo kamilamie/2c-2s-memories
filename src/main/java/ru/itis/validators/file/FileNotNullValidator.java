@@ -1,4 +1,4 @@
-package ru.itis.validators;
+package ru.itis.validators.file;
 
 import org.springframework.web.multipart.MultipartFile;
 

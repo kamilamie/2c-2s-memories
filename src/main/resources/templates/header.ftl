@@ -38,8 +38,8 @@
     </div>
 </nav>
 
-<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/popper.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/lib/popper.min.js"></script>
+<script type="text/javascript" src="/js/lib/bootstrap.js"></script>
 </body>
 </html>

@@ -65,7 +65,7 @@
 </div>
 
 
-<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/show-hide-password.js"></script>
 </body>
 </html>

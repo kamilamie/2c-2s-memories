@@ -3,18 +3,13 @@ package ru.itis.forms;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
-import ru.itis.models.Post;
-import ru.itis.models.User;
-import ru.itis.validators.File;
-import ru.itis.validators.Login;
-import ru.itis.validators.Password;
-import ru.itis.validators.UniqueEmail;
+import ru.itis.validators.file.File;
+import ru.itis.validators.login.Login;
+import ru.itis.validators.password.Password;
+import ru.itis.validators.email.UniqueEmail;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Data
 @NoArgsConstructor

@@ -1,15 +1,15 @@
-package ru.itis.validators;
+package ru.itis.validators.login;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
+@Constraint(validatedBy = LoginValidator.class)
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = FileNotNullValidator.class)
-public @interface FileNotNull {
-    String message() default "{NotNull.default.message}";
+public @interface Login {
+    String message() default "{Login.default.message}";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

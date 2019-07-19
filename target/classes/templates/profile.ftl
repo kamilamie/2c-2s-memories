@@ -126,5 +126,5 @@
 </#if>
 
 </body>
-<script src="/js/my-profile.js"></script>
+<script src="/js/profile.js"></script>
 </html>
