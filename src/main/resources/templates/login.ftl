@@ -29,7 +29,14 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="enter password">
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="enter password">
+                    <div class="input-group-append">
+                        <span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+                    </div>
+                </div>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="remember-me" name="remember-me">
@@ -59,5 +66,6 @@
 
 
 <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/show-hide-password.js"></script>
 </body>
 </html>

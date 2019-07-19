@@ -10,13 +10,12 @@ import ru.itis.transfer.UserDto;
 import static ru.itis.transfer.UserDto.from;
 
 @Controller
-public class ProfileController {
-    @GetMapping("/profile")
-    public String getProfilePage(Authentication authentication, ModelMap map) {
+public class FeedController {
+    @GetMapping("/feed")
+    public String getFeedPage(Authentication authentication, ModelMap map) {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         UserDto user = from(details.getUser());
         map.addAttribute("user", user);
-        System.out.println();
-        return "profile";
+        return "feed";
     }
 }

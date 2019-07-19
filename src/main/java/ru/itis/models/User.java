@@ -4,9 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.itis.forms.UserForm;
+import ru.itis.forms.UserRegisterForm;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +16,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "my_user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,13 +26,23 @@ public class User {
     private String login;
     private String hashPassword;
 
-    public static User from(UserForm form) {
-        return User.builder()
-                .firstName(form.getFirstName())
-                .lastName(form.getLastName())
-                .login(form.getLogin())
-                .hashPassword(form.getPassword())
-                .build();
-    }
+    private String city;
+    private String email;
+    private String photo_path;
+
+    @OneToMany(mappedBy = "author")
+    @OrderBy("date DESC")
+    private List<Post> posts;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name="subscriptions",
+            joinColumns = @JoinColumn(name="subscriptor_id"),
+            inverseJoinColumns = @JoinColumn(name="subscriber_id")
+    )
+    private List<User> followers;
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "followers")
+    private List<User> followings;
 
 }

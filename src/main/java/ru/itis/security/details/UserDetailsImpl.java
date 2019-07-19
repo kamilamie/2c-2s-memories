@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import ru.itis.models.User;
 
 import java.util.Collection;
-import java.util.Collections;
 
 public class UserDetailsImpl implements UserDetails {
 

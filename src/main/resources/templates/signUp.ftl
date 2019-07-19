@@ -6,64 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link type="text/css" rel="stylesheet" href="/css/login-validate.css">
     <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
+<style>
+
+</style>
 <body class="bg-light poppins-regular">
-<div class="d-flex justify-content-center">
+<div class="container">
 
 
-    <div class="col-sm-4 p-5 m-5 shadow bg-white rounded">
-        <div class="text-center mb-5">
-            <h3>Sign Up</h3>
-        </div>
-        <#if error??>
-                <p class="alert alert-primary small">Login or password are not valid!</p>
+<div class="row justify-content-between col-sm-11 shadow bg-white rounded m-5">
+    <div class="col-sm-6">
+        <img src="/images/sign-up.png" class="pic-v-center">
+    </div>
 
-        </#if>
-        <form method="post" action="/signUp">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="enter first name">
+    <div class="col-sm-6 border-left">
+        <div class="d-flex justify-content-center">
+
+            <div class="col-sm-11 p-5 ">
+                <div class="text-center mb-4">
+                    <h3>Sign Up</h3>
+                </div>
+
+                <form method="post" action="/signUp" class="validate-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group validate-input" data-validate="Invalid login">
+                        <input type="text" class="form-control input-item" id="login" name="login" placeholder="Login">
+                    </div>
+                    <div class="form-group validate-input" data-validate="Valid email is a@b.c">
+                        <input type="text" class="form-control input-item" id="email" name="email" placeholder="Email" >
+                    </div>
+
+                    <div class="form-group validate-input" data-validate="Invalid password">
+                        <input type="password" class="form-control input-item" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="" id="file" name="file" placeholder="Photo">
+                    </div>
+                    <div class="text-center" style="position: relative">
+                        <button type="submit" class="btn btn-dark col-sm-6 mt-4">SIGN UP</button>
+                        <#if errors??>
+                            <span class="fa fa-exclamation ml-2" data-toggle="tooltip" data-placement="right" title="
+                            <#list errors as error>
+                                ${error}
+                            </#list>"
+                                  style="color: red;  position: absolute; top: 60%;">
+                            </span>
+                        </#if>
+                    </div>
+                </form>
+                <hr>
+
+                <p class="small text-secondary text-center">or sign in with</p>
+                <div class="row justify-content-center">
+
+                    <span class="fa fa-google-plus-official fa-2x"></span>
+                    &nbsp;&nbsp;
+                    <span class="fa fa-vk fa-2x"></span>
+
+                </div>
+                <div class="text-center mt-5">
+                    <small>Already have an account? <a href="/login">log in</a></small>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="enter last name">
-            </div>
-            <div class="form-group">
-                <label for="login">Login</label>
-                <input type="text" class="form-control" id="login" name="login" placeholder="enter login">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="enter password">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="remember-me">
-                <label class="form-check-label" for="remember-me">Remember me</label>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-dark col-sm-6 mt-4">LOG IN</button>
-            </div>
-        </form>
-
-        <hr>
-
-        <p class="small text-secondary text-center">or sign in with</p>
-        <div class="row justify-content-center">
-
-            <span class="fa fa-google-plus-official fa-2x"></span>
-            &nbsp;&nbsp;
-            <span class="fa fa-vk fa-2x"></span>
-
-        </div>
-        <div class="text-center mt-5">
-            <small>Already have an account? <a href="/login">Login</a></small>
-
         </div>
     </div>
+
+</div>
 </div>
 
 <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/registration-validate.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 </body>
 </html>

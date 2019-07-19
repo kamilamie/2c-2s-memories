@@ -110,8 +110,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-07-16.17:50:34.256</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2199</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-07-18.23:18:51.182</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2220</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -157,7 +157,34 @@
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="30" parent="23" name="my_user_id_seq">
+    <sequence id="30" parent="23" name="comment_id_seq">
+      <ObjectId>18298</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2207</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="31" parent="23" name="my_like_id_seq">
+      <ObjectId>18306</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2208</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="32" parent="23" name="post_id_seq">
+      <ObjectId>18314</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2212</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <sequence id="33" parent="23" name="my_user_id_seq">
       <ObjectId>18282</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2198</StateNumber>
@@ -166,17 +193,149 @@
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <table id="31" parent="23" name="my_user">
+    <table id="34" parent="23" name="comment">
+      <ObjectId>18300</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2215</StateNumber>
+    </table>
+    <table id="35" parent="23" name="my_like">
+      <ObjectId>18308</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2217</StateNumber>
+    </table>
+    <table id="36" parent="23" name="my_user">
       <ObjectId>18284</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2198</StateNumber>
+      <StateNumber>2220</StateNumber>
     </table>
-    <table id="32" parent="23" name="persistent_logins">
+    <table id="37" parent="23" name="persistent_logins">
       <ObjectId>18293</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2199</StateNumber>
     </table>
-    <column id="33" parent="31" name="id">
+    <table id="38" parent="23" name="post">
+      <ObjectId>18316</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2218</StateNumber>
+    </table>
+    <table id="39" parent="23" name="subscriptions">
+      <ObjectId>18325</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2220</StateNumber>
+    </table>
+    <column id="40" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2207</StateNumber>
+      <DefaultExpression>nextval(&apos;comment_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>comment_id_seq</SequenceName>
+    </column>
+    <column id="41" parent="34" name="date">
+      <Position>2</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>2207</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="42" parent="34" name="text">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2207</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="34" name="user_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>2207</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="44" parent="34" name="post_id">
+      <Position>5</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>2207</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="45" parent="34" name="comment_pkey">
+      <ObjectId>18304</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="34" name="comment_pkey">
+      <ObjectId>18305</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>comment_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="34" name="fk7xb12r8dp4a4rgp3r4poerayj">
+      <ObjectId>18328</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableId>18284</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>my_user</RefTableName>
+      <RefKeyName>my_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="48" parent="34" name="fks1slvnkuemjsq2kj4h3vhx7i1">
+      <ObjectId>18333</ObjectId>
+      <ColNames>post_id</ColNames>
+      <RefTableId>18316</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>post</RefTableName>
+      <RefKeyName>post_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="49" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2208</StateNumber>
+      <DefaultExpression>nextval(&apos;my_like_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>my_like_id_seq</SequenceName>
+    </column>
+    <column id="50" parent="35" name="post_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>2208</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="51" parent="35" name="user_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>2208</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="52" parent="35" name="my_like_pkey">
+      <ObjectId>18312</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="35" name="my_like_pkey">
+      <ObjectId>18313</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>my_like_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="35" name="fkcd2si6nv6ouhveeo5q51htcyy">
+      <ObjectId>18338</ObjectId>
+      <ColNames>post_id</ColNames>
+      <RefTableId>18316</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>post</RefTableName>
+      <RefKeyName>post_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="35" name="fk7lgrgeojswli4pt6mecs3tbly">
+      <ObjectId>18343</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableId>18284</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>my_user</RefTableName>
+      <RefKeyName>my_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="56" parent="36" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -185,76 +344,203 @@
       <TypeId>20</TypeId>
       <SequenceName>my_user_id_seq</SequenceName>
     </column>
-    <column id="34" parent="31" name="first_name">
+    <column id="57" parent="36" name="first_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2198</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="35" parent="31" name="hash_password">
+    <column id="58" parent="36" name="hash_password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2198</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="36" parent="31" name="last_name">
+    <column id="59" parent="36" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2198</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="37" parent="31" name="login">
+    <column id="60" parent="36" name="login">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2198</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="38" parent="31" name="my_user_pkey">
+    <column id="61" parent="36" name="role">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2201</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="62" parent="36" name="state">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2202</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="63" parent="36" name="city">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2209</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="64" parent="36" name="email">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2210</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="65" parent="36" name="photo_path">
+      <Position>10</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2211</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="66" parent="36" name="my_user_pkey">
       <ObjectId>18291</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="39" parent="31" name="my_user_pkey">
+    <key id="67" parent="36" name="my_user_pkey">
       <ObjectId>18292</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>my_user_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="40" parent="32" name="username">
+    <column id="68" parent="37" name="username">
       <Position>1</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="41" parent="32" name="series">
+    <column id="69" parent="37" name="series">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="32" name="token">
+    <column id="70" parent="37" name="token">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="32" name="last_used">
+    <column id="71" parent="37" name="last_used">
       <Position>4</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="44" parent="32" name="persistent_logins_pkey">
+    <index id="72" parent="37" name="persistent_logins_pkey">
       <ObjectId>18296</ObjectId>
       <ColNames>series</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="45" parent="32" name="persistent_logins_pkey">
+    <key id="73" parent="37" name="persistent_logins_pkey">
       <ObjectId>18297</ObjectId>
       <ColNames>series</ColNames>
       <UnderlyingIndexName>persistent_logins_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
+    <column id="74" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2212</StateNumber>
+      <DefaultExpression>nextval(&apos;post_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+      <SequenceName>post_id_seq</SequenceName>
+    </column>
+    <column id="75" parent="38" name="coordinatex">
+      <Position>2</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>2212</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="76" parent="38" name="coordinatey">
+      <Position>3</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>2212</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="77" parent="38" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>2212</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="78" parent="38" name="description">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2212</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="79" parent="38" name="photo_path">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2212</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="80" parent="38" name="author_id">
+      <Position>7</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>2212</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="81" parent="38" name="post_pkey">
+      <ObjectId>18323</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="82" parent="38" name="post_pkey">
+      <ObjectId>18324</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>post_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="83" parent="38" name="fkergn025tbaufnbwl8fot8g03d">
+      <ObjectId>18348</ObjectId>
+      <ColNames>author_id</ColNames>
+      <RefTableId>18284</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>my_user</RefTableName>
+      <RefKeyName>my_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="84" parent="39" name="subscriptor_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2213</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="85" parent="39" name="subscriber_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2213</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="86" parent="39" name="fkr0lyp5co89k5n4yliw7tqwdjt">
+      <ObjectId>18358</ObjectId>
+      <ColNames>subscriptor_id</ColNames>
+      <RefTableId>18284</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>my_user</RefTableName>
+      <RefKeyName>my_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="87" parent="39" name="fkpcapbbrpb8socv7seceq252u0">
+      <ObjectId>18353</ObjectId>
+      <ColNames>subscriber_id</ColNames>
+      <RefTableId>18284</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>my_user</RefTableName>
+      <RefKeyName>my_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>
