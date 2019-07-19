@@ -6,10 +6,9 @@
     <meta charset="utf-8">
 </head>
 <body class="bg-light poppins-regular">
-<br>
 <#if user??>
 <div class="container border-bottom">
-    <div class="row p-4 justify-content-center">
+    <div class="row p-4 mb-3 justify-content-center">
         <div class="col-sm-3 text-center">
             <img src="${user.photo_path}" alt="user avatar" class="img-fluid round-img shadow">
         </div>
@@ -23,7 +22,9 @@
                         <span class="fa fa-camera"></span> Upload photo
                     </button>
                     &nbsp;
-                    <button class="btn btn-outline-dark"><span class="fa fa-pencil"></span> Edit profile</button>
+                    <form action="/editProfile">
+                        <button class="btn btn-light border"><span class="fa fa-pencil"></span> Edit profile</button>
+                    </form>
                     &nbsp;
                     <button class="btn btn-dark" onclick="location.href='/logout'"><span class="fa fa-sign-out"></span>
                         Logout
@@ -38,10 +39,10 @@
                     <strong id="followings">${user.followings?size}</strong> followings
                 </button>
             </div>
-            <div class="pl-4 pt-5">
-                <strong>${user.firstName} <#if user.lastName??>${user.lastName}</#if></strong>
-                <p>${user.email}</p>
-                <#if user.city??><p>${user.city}</p></#if>
+            <div class="p-4">
+                <strong>${user.firstName} <#if user.lastName??>${user.lastName}</#if></strong><br>
+                ${user.email}<br>
+                <#if user.city??>${user.city}</#if>
             </div>
         </div>
 
@@ -113,14 +114,8 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
 <#else>
-<div class="text-center after-header" style="margin: auto">
+<div class="text-center" style="margin: auto">
     <h1>No such user</h1>
 </div>
 </#if>

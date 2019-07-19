@@ -1,3 +1,5 @@
+/* FONTS //////////////////////////////////////////////////////*/
+
 @font-face {
     font-family: Poppins-Regular;
     src: url('../fonts/poppins/Poppins-Regular.ttf');
@@ -41,6 +43,7 @@
     font-family: Poppins-Light, sans-serif;
 }
 
+/* SIGN UP PAGE ///////////////////////////////////////////*/
 .pic-v-center {
     max-width: 100%;
     max-height: 100%;
@@ -52,6 +55,8 @@
     margin-top: -250px; /* Half the height */
     margin-left: -250px; /* Half the width */
 }
+
+/* LOGIN PAGE ///////////////////////////////////////////*/
 
 .btn-show-pass {
     font-size: 15px;
@@ -78,6 +83,8 @@
     color: #17a2b8;
 }
 
+/* PROFILE PAGE ///////////////////////////////////////////*/
+
 .round-img {
     width: 250px;
     height: 250px;
@@ -93,4 +100,16 @@
     border: 3px solid white; /* Параметры рамки */
     object-fit: cover;
     vertical-align: middle;
+}
+
+/* EDIT PROFILE PAGE ///////////////////////////////////////////*/
+.list-group .active {
+    border-color: transparent;
+    border-left: 2px solid black;
+    font-family: Poppins-Medium;
+    background-color: white;
+    color: black;
+}
+.b-color-trans{
+    border-color: transparent;
 }

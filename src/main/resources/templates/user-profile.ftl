@@ -6,10 +6,9 @@
     <meta charset="utf-8">
 </head>
 <body class="bg-light poppins-regular">
-<br>
 <#if user??>
 <div class="container border-bottom">
-    <div class="row p-4 justify-content-center">
+    <div class="row p-4 mb-3 justify-content-center">
         <div class="col-sm-3 text-center">
             <img src="${user.photo_path}" alt="user avatar" class="img-fluid round-img shadow">
         </div>
@@ -46,10 +45,10 @@
                     <strong is="followings">${user.followings?size}</strong> followings
                 </button>
             </div>
-            <div class="pl-4 pt-5">
-                <strong>${user.firstName} <#if user.lastName??>${user.lastName}</#if></strong>
-                <p>${user.email}</p>
-                <#if user.city??><p>${user.city}</p></#if>
+            <div class="p-4">
+                <strong>${user.firstName} <#if user.lastName??>${user.lastName}</#if></strong><br>
+                ${user.email}<br>
+                <#if user.city??>${user.city}</#if>
             </div>
         </div>
 
