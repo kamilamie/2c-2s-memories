@@ -10,17 +10,15 @@
 <#if user??>
 <div class="container border-bottom">
     <div class="row p-4 justify-content-center">
-        <div class="col-sm-4 text-center">
-            <img <#if user.photo_path??> src="${user.photo_path}"<#else>
-                                                src="/images/default_user_photo.png" </#if> alt="user avatar"
-                                         class="img-fluid round-img shadow">
+        <div class="col-sm-3 text-center">
+            <img src="${user.photo_path}" alt="user avatar" class="img-fluid round-img shadow">
         </div>
-        <div class="col-sm-7">
-            <div class="d-flex justify-content-center align-items-center p-4">
-                <div class=" poppins-extra-light mr-4">
+        <div>
+            <div class="d-flex justify-content-start align-items-center p-4">
+                <div class="poppins-extra-light d-flex justify-content-center mr-5">
                     <span style="font-size: 35px">${user.login}</span>
                 </div>
-                <div class="btn-group ml-3">
+                <div class="btn-group ">
                     <button class="btn bg-white border">
                         <span class="fa fa-camera"></span> Upload photo
                     </button>
@@ -33,24 +31,92 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around pl-5 pr-5">
-                <div>
+                <button class="btn" data-toggle="modal" data-active="followers" onclick="toggleActivePill(event)" data-target="#subModal">
                     <strong>${user.followers?size}</strong> followers
-                </div>
-                <div>
+                </button>
+                <button class="btn" data-toggle="modal" data-active="followings" onclick="toggleActivePill(event)" data-target="#subModal">
                     <strong>${user.followings?size}</strong> followings
-                </div>
+                </button>
             </div>
-            <div class="pl-5 pt-5">
+            <div class="pl-4 pt-5">
                 <strong>${user.firstName} <#if user.lastName??>${user.lastName}</#if></strong>
                 <p>${user.email}</p>
                 <#if user.city??><p>${user.city}</p></#if>
             </div>
         </div>
+
     </div>
+    <div class="bd-example">
+        <div class="modal fade" id="subModal" tabindex="-1" role="dialog"
+             aria-labelledby="subModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link" id="followers-tab" data-toggle="pill"
+                                   href="#followers-content"
+                                   role="tab" aria-controls="followers-content"
+                                   aria-selected="true">${user.followers?size} Followers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="followings-tab" data-toggle="pill"
+                                   href="#followings-content"
+                                   role="tab" aria-controls="followers-content"
+                                   aria-selected="false">${user.followings?size} Followings</a>
+                            </li>
+                        </ul>
 
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="max-height: 550px; overflow-y: auto;">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade" id="followers-content" role="tabpanel"
+                                 aria-labelledby="followers-tab">
+                                        <#list user.followers as follower>
+                                            <div class="align-items-center d-flex justify-content-between pl-5 pr-5">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="${follower.photo_path}" alt="user avatar"
+                                                         class="round-img-sm shadow mr-3">
+                                                    <a href="/profile/${follower.login}">${follower.login}</a>
+                                                </div>
+                                                <#if ((user.followings)?seq_contains(follower))>
+                                                    <button class="btn btn-danger">Unfollow</button>
+                                                <#else>
+                                                    <button class="btn btn-light">Follow</button>
+                                                </#if>
+                                            </div>
+                                            <hr>
+                                        </#list>
+                            </div>
+                            <div class="tab-pane fade" id="followings-content" role="tabpanel"
+                                 aria-labelledby="followings-tab">
+                                        <#list user.followings as following>
+                                            <div class="align-items-center d-flex justify-content-between pl-5 pr-5">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <img src="${following.photo_path}" alt="user avatar"
+                                                         class="round-img-sm shadow mr-3">
+                                                    <a href="/profile/${following.login}">${following.login}</a>
+                                                </div>
 
-
+                                                <button class="btn btn-danger">Unfollow</button>
+                                            </div>
+                                            <hr>
+                                        </#list>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 
 
 <#else>
@@ -60,4 +126,5 @@
 </#if>
 
 </body>
+<script src="/js/my-profile.js"></script>
 </html>

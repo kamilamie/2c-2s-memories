@@ -15,11 +15,13 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/users/**",
+                "/util/**",
                 "/css/**",
                 "/js/**",
                 "/fonts/**",
                 "/images/**")
                 .addResourceLocations("file:///" + UPLOADED_FOLDER + "/users/",
+                        "file:///" + UPLOADED_FOLDER + "/util/",
                         "classpath:/static/css/",
                         "classpath:/static/js/",
                         "classpath:/static/fonts/",

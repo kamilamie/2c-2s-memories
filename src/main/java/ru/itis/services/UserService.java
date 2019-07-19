@@ -9,8 +9,9 @@ import java.util.Optional;
 
 
 public interface UserService {
-    /*Optional<User> getUserByLogin(String login);
-    Optional<User> getUserById(Integer id);
+    Optional<User> getUserByLogin(String login);
+    Optional<User> getUserById(Long id);
+    /*
 
     boolean signUp(UserRegisterForm form);
 
@@ -18,10 +19,11 @@ public interface UserService {
 
     boolean editProfile(UserEditForm form, User user);
 
-    Optional<User> getCurrentUser(Authentication authentication);
+
 
     List<User> searchUsers(String text);*/
     void signUp(UserRegisterForm userRegisterForm);
+    Optional<User> getCurrentUser(Authentication authentication);
     boolean loginIsUnique(String login);
 
     boolean emailIsUnique(String email);

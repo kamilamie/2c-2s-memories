@@ -15,19 +15,15 @@
         </div>
         <div>
             <div class="d-flex justify-content-start align-items-center p-4">
-                <div class="poppins-extra-light d-flex justify-content-center mr-5">
+                <div class="poppins-extra-light d-flex justify-content-center mr-4">
                     <span style="font-size: 35px">${user.login}</span>
                 </div>
-                <div class="btn-group ">
+                <div class="btn-group">
                     <button class="btn bg-white border">
-                        <span class="fa fa-camera"></span> Upload photo
+                        <span class="fa fa-user-plus"></span> Follow
                     </button>
                     &nbsp;
-                    <button class="btn btn-outline-dark"><span class="fa fa-pencil"></span> Edit profile</button>
-                    &nbsp;
-                    <button class="btn btn-dark" onclick="location.href='/logout'"><span class="fa fa-sign-out"></span>
-                        Logout
-                    </button>
+                    <button class="btn btn-dark"><span class="fa fa-commenting-o"></span> Message</button>
                 </div>
             </div>
             <div class="d-flex justify-content-around pl-5 pr-5">
@@ -82,11 +78,14 @@
                                                          class="round-img-sm shadow mr-3">
                                                     <a href="/profile/${follower.login}">${follower.login}</a>
                                                 </div>
-                                                <#if ((user.followings)?seq_contains(follower))>
+                                                <#if current_user.login!=follower.login>
+                                                    <#if current_user.followings?seq_contains(follower)>
                                                     <button class="btn btn-danger">Unfollow</button>
-                                                <#else>
+                                                    <#else>
                                                     <button class="btn btn-light">Follow</button>
+                                                    </#if>
                                                 </#if>
+
                                             </div>
                                             <hr>
                                         </#list>
@@ -100,8 +99,13 @@
                                                          class="round-img-sm shadow mr-3">
                                                     <a href="/profile/${following.login}">${following.login}</a>
                                                 </div>
-
-                                                <button class="btn btn-danger">Unfollow</button>
+                                                <#if current_user.login!=following.login>
+                                                    <#if (current_user.followings?seq_contains(following))||(current_user==following)>
+                                                        <button class="btn btn-danger">Unfollow</button>
+                                                    <#else>
+                                                        <button class="btn btn-light">Follow</button>
+                                                    </#if>
+                                                </#if>
                                             </div>
                                             <hr>
                                         </#list>
@@ -113,11 +117,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 
 <#else>
 <div class="text-center after-header" style="margin: auto">

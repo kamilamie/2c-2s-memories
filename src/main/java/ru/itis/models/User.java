@@ -34,7 +34,7 @@ public class User {
     @OrderBy("date DESC")
     private List<Post> posts;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="subscriptions",
             joinColumns = @JoinColumn(name="subscriptor_id"),
@@ -42,7 +42,11 @@ public class User {
     )
     private List<User> followers;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "followers")
+    @ManyToMany(mappedBy = "followers")
     private List<User> followings;
+
+    public String toString(){
+        return "login: "+login;
+    }
 
 }
