@@ -19,29 +19,31 @@
                     <span style="font-size: 35px">${user.login}</span>
                 </div>
                 <div class="btn-group">
-                    <#assign followedByCurrentUser = false>
+                    <#if currentUserId??>
+                        <#assign followedByCurrentUser = false>
                         <#list user.followers as follower>
                             <#if follower.id == currentUserId>
                                 <#assign followedByCurrentUser = true>
                             </#if>
                         </#list>
-                    <button class="btn bg-white border">
+                    <button id="follow-btn" class="btn bg-white border" style="width: 150px" data-login="${user.login}" onclick="follow(event)">
                         <#if !followedByCurrentUser>
-                        <span class="fa fa-user-plus"></span> Follow
+                            <span class="fa fa-user-plus"></span> Follow
                         <#else>
                         <span class="fa fa-user-times"></span> Unfollow
                         </#if>
                     </button>
                     &nbsp;
+                    </#if>
                     <button class="btn btn-dark"><span class="fa fa-commenting-o"></span> Message</button>
                 </div>
             </div>
-            <div class="d-flex justify-content-around pl-5 pr-5">
+            <div class="d-flex justify-content-around pl-4 pr-4">
                 <button class="btn" data-toggle="modal" data-active="followers" onclick="toggleActivePill(event)" data-target="#subModal">
-                    <strong>${user.followers?size}</strong> followers
+                    <strong id="followers">${user.followers?size}</strong> followers
                 </button>
                 <button class="btn" data-toggle="modal" data-active="followings" onclick="toggleActivePill(event)" data-target="#subModal">
-                    <strong>${user.followings?size}</strong> followings
+                    <strong is="followings">${user.followings?size}</strong> followings
                 </button>
             </div>
             <div class="pl-4 pt-5">
@@ -90,9 +92,9 @@
                                                 </div>
                                                 <#if currentUserId!=follower.id>
                                                     <#if currUserFollowings?seq_contains(follower)>
-                                                    <button class="btn btn-danger">Unfollow</button>
+                                                    <button class="btn btn-outline-danger" data-login="${follower.login}" onclick="follow(event)">Unfollow</button>
                                                     <#else>
-                                                    <button class="btn btn-light">Follow</button>
+                                                    <button class="btn btn-light" data-login="${follower.login}" onclick="follow(event)">Follow</button>
                                                     </#if>
                                                 </#if>
 
@@ -111,9 +113,9 @@
                                                 </div>
                                                 <#if currentUserId!=following.id>
                                                     <#if currUserFollowings?seq_contains(following)>
-                                                        <button class="btn btn-danger">Unfollow</button>
+                                                        <button class="btn btn-outline-danger" data-login="${following.login}" onclick="follow(event)">Unfollow</button>
                                                     <#else>
-                                                        <button class="btn btn-light">Follow</button>
+                                                        <button class="btn btn-light" data-login="${following.login}" onclick="follow(event)">Follow</button>
                                                     </#if>
                                                 </#if>
                                             </div>

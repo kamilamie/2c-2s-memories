@@ -11,6 +11,7 @@ import ru.itis.repositories.UserRepository;
 import ru.itis.security.details.UserDetailsImpl;
 import ru.itis.utils.FileDownloader;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,6 +67,35 @@ public class UserServiceImpl implements UserService {
 
     public boolean loginIsUnique(String login) {
         return !userRepository.findOneByLogin(login).isPresent();
+    }
+
+    @Override
+    public boolean toggleSubscription(User subscriptor, User subscriber) {
+        if (isNotSubscribed(subscriptor, subscriber)) {
+            subscriptor.getFollowers().add(subscriber);
+            userRepository.save(subscriptor);
+            return true;
+        } else {
+            subscriptor.getFollowers().remove(findById(subscriptor.getFollowers(), subscriber.getId()));
+            userRepository.save(subscriptor);
+            return false;
+        }
+    }
+    private boolean isNotSubscribed(User subscriptor, User subscriber) {
+        for (User follower : subscriptor.getFollowers()) {
+            if (follower.getId().equals(subscriber.getId())) {
+                return false;
+            }
+        }
+        return true;
+    }
+    private User findById(List<User> users, Long id) {
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public boolean emailIsUnique(String email) {

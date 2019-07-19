@@ -32,10 +32,10 @@
             </div>
             <div class="d-flex justify-content-around pl-5 pr-5">
                 <button class="btn" data-toggle="modal" data-active="followers" onclick="toggleActivePill(event)" data-target="#subModal">
-                    <strong>${user.followers?size}</strong> followers
+                    <strong id="followers">${user.followers?size}</strong> followers
                 </button>
                 <button class="btn" data-toggle="modal" data-active="followings" onclick="toggleActivePill(event)" data-target="#subModal">
-                    <strong>${user.followings?size}</strong> followings
+                    <strong id="followings">${user.followings?size}</strong> followings
                 </button>
             </div>
             <div class="pl-4 pt-5">
@@ -57,13 +57,13 @@
                                 <a class="nav-link" id="followers-tab" data-toggle="pill"
                                    href="#followers-content"
                                    role="tab" aria-controls="followers-content"
-                                   aria-selected="true">${user.followers?size} Followers</a>
+                                   aria-selected="true"><span id="followers-tab-size">${user.followers?size}</span> Followers</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="followings-tab" data-toggle="pill"
                                    href="#followings-content"
                                    role="tab" aria-controls="followers-content"
-                                   aria-selected="false">${user.followings?size} Followings</a>
+                                   aria-selected="false"><span id="followings-tab-size">${user.followings?size}</span> Followings</a>
                             </li>
                         </ul>
 
@@ -83,9 +83,9 @@
                                                     <a href="/profile/${follower.login}">${follower.login}</a>
                                                 </div>
                                                 <#if ((user.followings)?seq_contains(follower))>
-                                                    <button class="btn btn-danger">Unfollow</button>
+                                                    <button class="btn btn-outline-danger" data-login="${follower.login}" onclick="follow(event)">Unfollow</button>
                                                 <#else>
-                                                    <button class="btn btn-light">Follow</button>
+                                                    <button class="btn btn-light" data-login="${follower.login}" onclick="follow(event)">Follow</button>
                                                 </#if>
                                             </div>
                                             <hr>
@@ -101,7 +101,7 @@
                                                     <a href="/profile/${following.login}">${following.login}</a>
                                                 </div>
 
-                                                <button class="btn btn-danger">Unfollow</button>
+                                                <button class="btn btn-outline-danger" data-login="${following.login}" onclick="follow(event)">Unfollow</button>
                                             </div>
                                             <hr>
                                         </#list>

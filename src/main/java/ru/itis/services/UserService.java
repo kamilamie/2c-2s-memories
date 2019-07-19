@@ -15,7 +15,7 @@ public interface UserService {
 
     boolean signUp(UserRegisterForm form);
 
-    boolean toggleSubscription(User user, User currentUser);
+
 
     boolean editProfile(UserEditForm form, User user);
 
@@ -25,6 +25,6 @@ public interface UserService {
     void signUp(UserRegisterForm userRegisterForm);
     Optional<User> getCurrentUser(Authentication authentication);
     boolean loginIsUnique(String login);
-
+    boolean toggleSubscription(User user, User currentUser);
     boolean emailIsUnique(String email);
 }
