@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white p-3">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white p-3 border-bottom">
     <div class="container">
 
 

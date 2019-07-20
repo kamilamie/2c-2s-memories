@@ -9,6 +9,8 @@ import ru.itis.validators.file.File;
 import ru.itis.validators.login.Login;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
@@ -18,7 +20,6 @@ public class UserEditForm {
     @Size(min=2, max=20, message = "input size should be between 2 and 20")
     private String firstName;
 
-    @Size(min=2, max=30, message = "input size should be between 2 and 20")
     private String lastName;
 
     @Login

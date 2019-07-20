@@ -40,7 +40,7 @@ public class EditProfileController {
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = bindingResult.getFieldErrors().stream()
                     .collect( Collectors.toMap(FieldError::getField,
-                            FieldError::getDefaultMessage));
+                            FieldError::getDefaultMessage, (e1, e2) -> e1));
             System.out.println(errors);
             model.addAttribute("errors", errors);
             model.addAttribute("section", "info");
@@ -59,7 +59,7 @@ public class EditProfileController {
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = bindingResult.getFieldErrors().stream()
                     .collect( Collectors.toMap(FieldError::getField,
-                            FieldError::getDefaultMessage));
+                            FieldError::getDefaultMessage, (e1, e2) -> e1));
             System.out.println(errors);
             model.addAttribute("errors", errors);
             model.addAttribute("section", "password");

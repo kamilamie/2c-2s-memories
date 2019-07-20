@@ -22,6 +22,7 @@ public class UserDto {
     private String photo_path;
     private List<User> followers;
     private List<User> followings;
+    private Boolean isPrivate;
 
     private static String UPLOADED_FOLDER;
 

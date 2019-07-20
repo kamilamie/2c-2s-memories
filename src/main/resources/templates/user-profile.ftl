@@ -103,23 +103,23 @@
                             </div>
                             <div class="tab-pane fade" id="followings-content" role="tabpanel"
                                  aria-labelledby="followings-tab">
-                                        <#list user.followings as following>
-                                            <div class="align-items-center d-flex justify-content-between pl-5 pr-5">
-                                                <div class="d-flex justify-content-start align-items-center">
-                                                    <img src="${following.photo_path}" alt="user avatar"
-                                                         class="round-img-sm shadow mr-3">
-                                                    <a href="/profile/${following.login}">${following.login}</a>
-                                                </div>
-                                                <#if currentUserId!=following.id>
-                                                    <#if currUserFollowings?seq_contains(following)>
-                                                        <button class="btn btn-outline-danger" data-login="${following.login}" onclick="follow(event)">Unfollow</button>
-                                                    <#else>
-                                                        <button class="btn btn-light" data-login="${following.login}" onclick="follow(event)">Follow</button>
-                                                    </#if>
-                                                </#if>
-                                            </div>
-                                            <hr>
-                                        </#list>
+                                <#list user.followings as following>
+                                    <div class="align-items-center d-flex justify-content-between pl-5 pr-5">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <img src="${following.photo_path}" alt="user avatar"
+                                                 class="round-img-sm shadow mr-3">
+                                            <a href="/profile/${following.login}">${following.login}</a>
+                                        </div>
+                                        <#if currentUserId!=following.id>
+                                            <#if currUserFollowings?seq_contains(following)>
+                                                <button class="btn btn-outline-danger" data-login="${following.login}" onclick="follow(event)">Unfollow</button>
+                                            <#else>
+                                                <button class="btn btn-light" data-login="${following.login}" onclick="follow(event)">Follow</button>
+                                            </#if>
+                                        </#if>
+                                    </div>
+                                    <hr>
+                                </#list>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,9 @@
         </div>
     </div>
 </div>
-
+<div class="container">
+    <#if user.>
+</div>
 <#else>
 <div class="text-center after-header" style="margin: auto">
     <h1>No such user</h1>

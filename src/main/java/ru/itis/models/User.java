@@ -25,6 +25,7 @@ public class User {
 
     private String login;
     private String hashPassword;
+    private Boolean isPrivate;
 
     private String city;
     private String email;
