@@ -196,12 +196,12 @@
                         <h5 class="mb-4">Account privacy</h5>
                         <form>
                             <div class="form-check">
-                                <input type="checkbox" disabled class="form-check-input" aria-describedby="privateHelp"
-                                       id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Private account <small class="text-danger"> (this feature is temporarily disabled)</small></label>
+                                <input type="checkbox"  <#if user.isPrivate==true> checked </#if> class="form-check-input"
+                                       aria-describedby="privateHelp" onclick="togglePrivateMode(event)" id="private">
+                                <label class="form-check-label" for="private">Private account</label>
                             </div>
                             <small id="privateHelp" class="form-text text-muted">If you have a private account, only people subscribed to you
-                                will be able to see your photos
+                                will be able to see your photos.
                             </small>
 
                         </form>

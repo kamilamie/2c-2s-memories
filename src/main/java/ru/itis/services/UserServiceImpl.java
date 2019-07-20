@@ -152,6 +152,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void togglePrivate(User currentUser) {
+        currentUser.setIsPrivate(!currentUser.getIsPrivate());
+        userRepository.save(currentUser);
+    }
+
+    @Override
     public void changePassword(ChangePasswordForm form, User currentUser) {
         currentUser.setHashPassword(passwordEncoder.encode(form.getNewPassword()));
         userRepository.save(currentUser);

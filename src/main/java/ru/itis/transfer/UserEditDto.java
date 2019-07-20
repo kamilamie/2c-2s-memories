@@ -19,6 +19,7 @@ public class UserEditDto {
     private String email;
     private String city;
     private String photo_path;
+    private Boolean isPrivate;
 
     public static UserEditDto from(User user) {
         return UserEditDto.builder()
@@ -28,6 +29,7 @@ public class UserEditDto {
                 .email(user.getEmail())
                 .city(user.getCity())
                 .photo_path(user.getPhoto_path())
+                .isPrivate(user.getIsPrivate())
                 .build();
     }
 }

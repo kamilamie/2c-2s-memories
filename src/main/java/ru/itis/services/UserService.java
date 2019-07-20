@@ -22,6 +22,6 @@ public interface UserService {
     boolean emailIsUnique(String email);
     void editProfile(UserEditForm form, User user);
     String deletePhoto(User user);
-
+    void togglePrivate(User currentUser);
     void changePassword(ChangePasswordForm form, User currentUser);
 }

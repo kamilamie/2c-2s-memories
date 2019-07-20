@@ -129,7 +129,15 @@
     </div>
 </div>
 <div class="container">
-    <#if user.>
+    <#if user.isPrivate == true>
+        <div class="m-5 text-center">
+            <h5>User has restricted access to his page</h5>
+        </div>
+    <#else>
+        <div class="m-5 text-center">
+            <h5>User has no post yet</h5>
+        </div>
+    </#if>
 </div>
 <#else>
 <div class="text-center after-header" style="margin: auto">

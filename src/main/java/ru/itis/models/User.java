@@ -25,6 +25,7 @@ public class User {
 
     private String login;
     private String hashPassword;
+    @Column(columnDefinition = "boolean default false")
     private Boolean isPrivate;
 
     private String city;

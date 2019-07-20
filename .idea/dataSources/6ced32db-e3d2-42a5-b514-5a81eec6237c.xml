@@ -110,8 +110,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-07-18.23:18:51.182</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2220</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-07-21.00:05:13.096</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2481</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -206,7 +206,7 @@
     <table id="36" parent="23" name="my_user">
       <ObjectId>18284</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2220</StateNumber>
+      <StateNumber>2481</StateNumber>
     </table>
     <table id="37" parent="23" name="persistent_logins">
       <ObjectId>18293</ObjectId>
@@ -398,54 +398,61 @@
       <StateNumber>2211</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="66" parent="36" name="my_user_pkey">
+    <column id="66" parent="36" name="is_private">
+      <Position>11</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>2481</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="67" parent="36" name="my_user_pkey">
       <ObjectId>18291</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="67" parent="36" name="my_user_pkey">
+    <key id="68" parent="36" name="my_user_pkey">
       <ObjectId>18292</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>my_user_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="68" parent="37" name="username">
+    <column id="69" parent="37" name="username">
       <Position>1</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="69" parent="37" name="series">
+    <column id="70" parent="37" name="series">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="37" name="token">
+    <column id="71" parent="37" name="token">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="71" parent="37" name="last_used">
+    <column id="72" parent="37" name="last_used">
       <Position>4</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2199</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="72" parent="37" name="persistent_logins_pkey">
+    <index id="73" parent="37" name="persistent_logins_pkey">
       <ObjectId>18296</ObjectId>
       <ColNames>series</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="73" parent="37" name="persistent_logins_pkey">
+    <key id="74" parent="37" name="persistent_logins_pkey">
       <ObjectId>18297</ObjectId>
       <ColNames>series</ColNames>
       <UnderlyingIndexName>persistent_logins_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="74" parent="38" name="id">
+    <column id="75" parent="38" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -454,54 +461,54 @@
       <TypeId>20</TypeId>
       <SequenceName>post_id_seq</SequenceName>
     </column>
-    <column id="75" parent="38" name="coordinatex">
+    <column id="76" parent="38" name="coordinatex">
       <Position>2</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>2212</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="76" parent="38" name="coordinatey">
+    <column id="77" parent="38" name="coordinatey">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>2212</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="77" parent="38" name="date">
+    <column id="78" parent="38" name="date">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>2212</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="78" parent="38" name="description">
+    <column id="79" parent="38" name="description">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2212</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="79" parent="38" name="photo_path">
+    <column id="80" parent="38" name="photo_path">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2212</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="80" parent="38" name="author_id">
+    <column id="81" parent="38" name="author_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>2212</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="81" parent="38" name="post_pkey">
+    <index id="82" parent="38" name="post_pkey">
       <ObjectId>18323</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="82" parent="38" name="post_pkey">
+    <key id="83" parent="38" name="post_pkey">
       <ObjectId>18324</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>post_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="83" parent="38" name="fkergn025tbaufnbwl8fot8g03d">
+    <foreign-key id="84" parent="38" name="fkergn025tbaufnbwl8fot8g03d">
       <ObjectId>18348</ObjectId>
       <ColNames>author_id</ColNames>
       <RefTableId>18284</RefTableId>
@@ -510,21 +517,21 @@
       <RefKeyName>my_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="84" parent="39" name="subscriptor_id">
+    <column id="85" parent="39" name="subscriptor_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2213</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="85" parent="39" name="subscriber_id">
+    <column id="86" parent="39" name="subscriber_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2213</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="86" parent="39" name="fkr0lyp5co89k5n4yliw7tqwdjt">
+    <foreign-key id="87" parent="39" name="fkr0lyp5co89k5n4yliw7tqwdjt">
       <ObjectId>18358</ObjectId>
       <ColNames>subscriptor_id</ColNames>
       <RefTableId>18284</RefTableId>
@@ -533,7 +540,7 @@
       <RefKeyName>my_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="87" parent="39" name="fkpcapbbrpb8socv7seceq252u0">
+    <foreign-key id="88" parent="39" name="fkpcapbbrpb8socv7seceq252u0">
       <ObjectId>18353</ObjectId>
       <ColNames>subscriber_id</ColNames>
       <RefTableId>18284</RefTableId>

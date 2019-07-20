@@ -36,6 +36,7 @@ public class UserDto {
                 .photo_path(user.getPhoto_path())
                 .followers(user.getFollowers())
                 .followings(user.getFollowings())
+                .isPrivate(user.getIsPrivate())
                 .build();
     }
     @Value("${my.files-url}")
