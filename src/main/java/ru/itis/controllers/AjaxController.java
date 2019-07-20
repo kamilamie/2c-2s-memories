@@ -21,4 +21,10 @@ public class AjaxController {
         boolean followed = userService.toggleSubscription(subscriptor, currentUser);
         return ResponseEntity.ok(followed);
     }
+    @PostMapping("/ajax/deletePhoto")
+    public ResponseEntity<Object> deletePhoto(Authentication authentication){
+        User currentUser = userService.getCurrentUser(authentication).orElseThrow(IllegalArgumentException::new);
+        String photo_path = userService.deletePhoto(currentUser);
+        return ResponseEntity.ok(photo_path);
+    }
 }

@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class UserRegisterForm {
 
-
     @Size(min=2, max=20, message = "input size should be between 2 and 20")
     private String firstName;
 

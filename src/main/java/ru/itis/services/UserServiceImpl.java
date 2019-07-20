@@ -5,12 +5,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.itis.forms.ChangePasswordForm;
+import ru.itis.forms.UserEditForm;
 import ru.itis.forms.UserRegisterForm;
 import ru.itis.models.User;
 import ru.itis.repositories.UserRepository;
 import ru.itis.security.details.UserDetailsImpl;
 import ru.itis.utils.FileDownloader;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,6 +85,7 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
     private boolean isNotSubscribed(User subscriptor, User subscriber) {
         for (User follower : subscriptor.getFollowers()) {
             if (follower.getId().equals(subscriber.getId())) {
@@ -89,6 +94,7 @@ public class UserServiceImpl implements UserService {
         }
         return true;
     }
+
     private User findById(List<User> users, Long id) {
         for (User user : users) {
             if (user.getId().equals(id)) {
@@ -100,5 +106,54 @@ public class UserServiceImpl implements UserService {
 
     public boolean emailIsUnique(String email) {
         return !userRepository.findOneByEmail(email).isPresent();
+    }
+
+    @Override
+    public void editProfile(UserEditForm form, User currentUser) {
+        if (!form.getFirstName().equals(""))
+            currentUser.setFirstName(form.getFirstName());
+        else
+            currentUser.setFirstName(null);
+
+        if (!form.getLastName().equals(""))
+            currentUser.setLastName(form.getLastName());
+        else
+            currentUser.setLastName(null);
+
+        if (!form.getLogin().equals(""))
+            currentUser.setLogin(form.getLogin());
+        else
+            currentUser.setLogin(null);
+
+        if (!form.getEmail().equals(""))
+            currentUser.setEmail(form.getEmail());
+        else
+            currentUser.setEmail(null);
+        if (!form.getCity().equals(""))
+            currentUser.setCity(form.getCity());
+        else
+            currentUser.setCity(null);
+
+        if (!form.getFile().isEmpty()) {
+            String path = fileDownloader.upload(form.getFile(), currentUser.getLogin()).orElseThrow(IllegalArgumentException::new);
+            currentUser.setPhoto_path(path);
+        }
+
+        userRepository.save(currentUser);
+
+    }
+
+    @Override
+    public String deletePhoto(User user) {
+        user.setPhoto_path(default_photo);
+        userRepository.save(user);
+        return default_photo;
+
+    }
+
+    @Override
+    public void changePassword(ChangePasswordForm form, User currentUser) {
+        currentUser.setHashPassword(passwordEncoder.encode(form.getNewPassword()));
+        userRepository.save(currentUser);
     }
 }

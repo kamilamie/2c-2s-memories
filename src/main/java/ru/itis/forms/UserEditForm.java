@@ -7,13 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.itis.validators.email.UniqueEmail;
 import ru.itis.validators.file.File;
 import ru.itis.validators.login.Login;
-import ru.itis.validators.password.Password;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class UserEditForm {
 
@@ -25,10 +23,6 @@ public class UserEditForm {
 
     @Login
     private String login;
-
-    @Password
-    private String newPassword;
-    private String oldPassword;
 
     @Email(message = "email has incorrect format")
     @UniqueEmail
