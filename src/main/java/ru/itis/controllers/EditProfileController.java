@@ -43,7 +43,6 @@ public class EditProfileController {
                             FieldError::getDefaultMessage, (e1, e2) -> e1));
             System.out.println(errors);
             model.addAttribute("errors", errors);
-            model.addAttribute("section", "info");
             return "edit-profile";
         }
         userService.editProfile(form, currentUser);
@@ -62,7 +61,6 @@ public class EditProfileController {
                             FieldError::getDefaultMessage, (e1, e2) -> e1));
             System.out.println(errors);
             model.addAttribute("errors", errors);
-            model.addAttribute("section", "password");
             return "edit-profile";
         }
         userService.changePassword(form, currentUser);

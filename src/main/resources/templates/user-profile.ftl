@@ -38,11 +38,11 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around pl-4 pr-4">
-                <button class="btn" data-toggle="modal" data-active="followers" onclick="toggleActivePill(event)" data-target="#subModal">
+                <button class="btn" data-toggle="modal" id="followers-btn" onclick="toggleActivePill(event)" data-target="#subModal">
                     <strong id="followers">${user.followers?size}</strong> followers
                 </button>
-                <button class="btn" data-toggle="modal" data-active="followings" onclick="toggleActivePill(event)" data-target="#subModal">
-                    <strong is="followings">${user.followings?size}</strong> followings
+                <button class="btn" data-toggle="modal" id="followings-btn" onclick="toggleActivePill(event)" data-target="#subModal">
+                    <strong id="followings">${user.followings?size}</strong> followings
                 </button>
             </div>
             <div class="p-4">

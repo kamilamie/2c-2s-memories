@@ -219,7 +219,6 @@
 <script>
     $(function () {
         var path = window.location.pathname;
-
         if (path.includes("password"))
             $('#password').tab('show');
         else $('#info').tab('show');
