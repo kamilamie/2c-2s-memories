@@ -12,10 +12,10 @@
         <div class="row bg-white rounded border col-10 p-0 ">
             <div class="col-4 p-0 border-right">
                 <div class="list-group" id="settingsList" role="tablist">
-                    <a class="list-group-item list-group-item-action <#if section?? && section!="info"> <#else> active </#if>b-color-trans pl-5 pr-5 pt-3 pb-3"
+                    <a id="info" class="list-group-item list-group-item-action b-color-trans pl-5 pr-5 pt-3 pb-3"
                        data-toggle="list" href="#info-content" role="tab">Edit profile info</a>
                     <a id="password"
-                       class="list-group-item list-group-item-action <#if section?? && section=="password"> active </#if>b-color-trans pl-5 pr-5 pt-3 pb-3"
+                       class="list-group-item list-group-item-action b-color-trans pl-5 pr-5 pt-3 pb-3"
                        data-toggle="list" href="#password-content" role="tab">Change password</a>
                     <a id="privacy" class="list-group-item list-group-item-action b-color-trans pl-5 pr-5 pt-3 pb-3"
                        data-toggle="list" href="#privacy-content" role="tab">Privacy & Security</a>
@@ -23,11 +23,8 @@
             </div>
             <div class="col-8 p-0">
                 <div class="tab-content p-5">
-                    <div class="tab-pane <#if section?? && section!="info"> <#else> active show </#if> fade"
-                         id="info-content" role="tabpanel">
+                    <div class="tab-pane fade" id="info-content" role="tabpanel">
                         <form method="post" enctype="multipart/form-data" action="/editProfile">
-
-
                             <div class="d-flex justify-content-center h-100 align-items-center">
                                 <div class=" d-flex justify-content-end">
                                     <img src="${user.photo_path}" id="avatar" class="img-fluid round-img-md shadow">
@@ -148,7 +145,7 @@
 
                         </form>
                     </div>
-                    <div class="tab-pane fade <#if section?? && section=="password"> show active </#if>"
+                    <div class="tab-pane fade"
                          id="password-content" role="tabpanel">
                         <div class="d-flex row justify-content-center">
                             <div class="form-group row d-flex justify-content-end col-10 align-items-center h-100 mb-4">
@@ -196,11 +193,13 @@
                         <h5 class="mb-4">Account privacy</h5>
                         <form>
                             <div class="form-check">
-                                <input type="checkbox"  <#if user.isPrivate==true> checked </#if> class="form-check-input"
+                                <input type="checkbox"  <#if user.isPrivate==true> checked </#if>
+                                       class="form-check-input"
                                        aria-describedby="privateHelp" onclick="togglePrivateMode(event)" id="private">
                                 <label class="form-check-label" for="private">Private account</label>
                             </div>
-                            <small id="privateHelp" class="form-text text-muted">If you have a private account, only people subscribed to you
+                            <small id="privateHelp" class="form-text text-muted">If you have a private account, only
+                                people subscribed to you
                                 will be able to see your photos.
                             </small>
 
@@ -218,6 +217,13 @@
 </div>
 <script type="application/javascript" src="/js/edit-profile.js"></script>
 <script>
+    $(function () {
+        var path = window.location.pathname;
+
+        if (path.includes("password"))
+            $('#password').tab('show');
+        else $('#info').tab('show');
+    })
     $('#file').on('change', function () {
         var fileName = $(this).val();
         $(this).next('.custom-file-label').html(fileName);

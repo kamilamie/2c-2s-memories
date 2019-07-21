@@ -89,11 +89,13 @@
                                                          class="round-img-sm shadow mr-3">
                                                     <a href="/profile/${follower.login}">${follower.login}</a>
                                                 </div>
-                                                <#if currentUserId!=follower.id>
-                                                    <#if currUserFollowings?seq_contains(follower)>
+                                                <#if currentUserId??>
+                                                    <#if currentUserId!=follower.id>
+                                                        <#if currUserFollowings?seq_contains(follower)>
                                                     <button class="btn btn-outline-danger" data-login="${follower.login}" onclick="follow(event)">Unfollow</button>
-                                                    <#else>
+                                                        <#else>
                                                     <button class="btn btn-light" data-login="${follower.login}" onclick="follow(event)">Follow</button>
+                                                        </#if>
                                                     </#if>
                                                 </#if>
 
@@ -110,11 +112,13 @@
                                                  class="round-img-sm shadow mr-3">
                                             <a href="/profile/${following.login}">${following.login}</a>
                                         </div>
-                                        <#if currentUserId!=following.id>
-                                            <#if currUserFollowings?seq_contains(following)>
-                                                <button class="btn btn-outline-danger" data-login="${following.login}" onclick="follow(event)">Unfollow</button>
-                                            <#else>
-                                                <button class="btn btn-light" data-login="${following.login}" onclick="follow(event)">Follow</button>
+                                        <#if currentUserId??>
+                                            <#if currentUserId!=following.id>
+                                                <#if currUserFollowings?seq_contains(following)>
+                                                    <button class="btn btn-outline-danger" data-login="${following.login}" onclick="follow(event)">Unfollow</button>
+                                                <#else>
+                                                    <button class="btn btn-light" data-login="${following.login}" onclick="follow(event)">Follow</button>
+                                                </#if>
                                             </#if>
                                         </#if>
                                     </div>
@@ -129,7 +133,15 @@
     </div>
 </div>
 <div class="container">
-    <#if user.isPrivate == true>
+    <#assign followedByCurrentUser = false>
+    <#if currentUserId??>
+        <#list user.followers as follower>
+            <#if follower.id == currentUserId>
+                <#assign followedByCurrentUser = true>
+            </#if>
+        </#list>
+    </#if>
+    <#if user.isPrivate == true && !followedByCurrentUser>
         <div class="m-5 text-center">
             <h5>User has restricted access to his page</h5>
         </div>

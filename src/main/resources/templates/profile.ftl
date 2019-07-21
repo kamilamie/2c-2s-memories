@@ -19,7 +19,7 @@
                 </div>
                 <div class="btn-group ">
                     <button class="btn bg-white border">
-                        <span class="fa fa-camera"></span> Upload photo
+                        <span class="fa fa-camera"></span> New post
                     </button>
                     &nbsp;
                     <form action="/editProfile">

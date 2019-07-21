@@ -41,7 +41,6 @@ function follow(event) {
                 }
             }
             else {
-
                 var followers = document.getElementById("followers");
 
                 if(followBtn ===document.getElementById("follow-btn")){
