@@ -132,7 +132,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div id="posts" class="container">
     <#assign followedByCurrentUser = false>
     <#if currentUserId??>
         <#list user.followers as follower>
@@ -145,18 +145,125 @@
         <div class="m-5 text-center">
             <h5>User has restricted access to his page</h5>
         </div>
+    <#elseif user.posts?size == 0 >
+        <div class="text-center m-5">
+            <h5>User doesn't have posts yet</h5>
+        </div>
     <#else>
-        <div class="m-5 text-center">
-            <h5>User has no post yet</h5>
+        <div class="card-columns m-5">
+            <#list user.posts as post>
+                <div id="post${post.id}" class="card">
+                    <img src="${post.photo_path}" class="card-img-top" alt="post photo" data-toggle="modal" data-target="#postModal${post.id}">
+                </div>
+            <#--Post modal-->
+
+                <div class="modal fade post-modal text-center" id="postModal${post.id}"  tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+                    <div class="modal-dialog text-left d-inline-block mw-100" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div class="row m-3">
+                                    <div>
+                                        <img src="${post.photo_path}" style="max-height: 600px; max-width: 800px" >
+                                    </div>
+                                    <div style="width: 350px">
+                                        <div class="card-block px-2">
+                                            <div class="d-flex justify-content-between">
+                                                <small>${post.date}</small>
+                                                <div class="btn-group">
+                                                    <#if currentUserId??>
+                                                    <#assign liked = false>
+                                                    <#list post.likes as like>
+                                                        <#if like.user.id == currentUserId>
+                                                            <#assign liked = true>
+                                                        </#if>
+                                                    </#list>
+                                                    <button onclick="like(event)" class="btn btn-sm btn-outline-danger"
+                                                            data-post-id="${post.id}">
+                                                        <span id="likes${post.id}">${post.likes?size}</span>
+                                                        <span id="likesHeart${post.id}"
+                                                              class="fa <#if liked == true> fa-heart <#elseif liked == false> fa-heart-o </#if>"></span>
+                                                    </button>
+                                                    <#else>
+                                                        <form action="/login">
+                                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                                <span id="likes${post.id}">${post.likes?size}</span>
+                                                                <span id="likesHeart${post.id}" class="fa fa-heart-o"></span>
+                                                            </button>
+                                                        </form>
+                                                    </#if>
+
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#photoMapModal">
+                                                        Show on map
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <br></br>
+                                            <#if post.description?has_content>
+                                                <h4 class="card-title text-center">${post.description}</h4>
+                                                <hr>
+                                            </#if>
+                                            <h6 class="card-text">Comments:</h6>
+                                            <#if currentUserId??>
+                                                <div class="input-group mb-3">
+                                                    <input id="commentinput${post.id}" type="text" class="form-control form-control-sm col-sm-10"
+                                                           placeholder="Leave your comment">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-sm btn-outline-secondary" type="button"
+                                                                data-post-id="${post.id}"
+                                                                onclick="addComment(event)">Send
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </#if>
+
+
+                                                <div class="list-group list-group-flush" id="comments${post.id}">
+                                                    <#if post.comments?size==0>
+                                                        <p class="text-center">No comments yet</p>
+                                                    <#else>
+                                                    <#list post.comments as comment>
+                                                        <div id="comment${comment.id}" class="list-group-item flex-column align-items-start">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <p class="mb-1"><a
+                                                                        href="/profile/${comment.author.login}">${comment.author.login}</a></p>
+                                                                <small>${comment.date}</small>
+                                                            </div>
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <small class="mb-1" data-contain-user-tags data-contain-hashtags>${comment.text}</small>
+                                                                <#if currentUserId?? && comment.author.id == currentUserId>
+                                                                    <div class="text-right">
+                                                                        <button class="btn btn-sm btn-dark fa fa-trash-o" data-comment-id="${comment.id}"
+                                                                                onclick="deleteComment(event)">
+                                                                        </button>
+                                                                    </div>
+                                                                </#if>
+                                                            </div>
+                                                        </div>
+                                                    </#list>
+                                                    </#if>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <#--end of post modal-->
+            </#list>
         </div>
     </#if>
 </div>
 <#else>
-<div class="text-center after-header" style="margin: auto">
-    <h1>No such user</h1>
+<div class="text-center m-5">
+    <h3>No such user</h3>
 </div>
 </#if>
 
 </body>
 <script src="/js/profile.js"></script>
+<script type="text/javascript" src="/js/post.js"></script>
 </html>

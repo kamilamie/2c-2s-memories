@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Data
@@ -14,22 +13,22 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "comment")
-public class Comment {
+@Table(name = "message")
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User author;
+    @JoinColumn(name = "sender_id")
+    private User sender;
 
-    @NotEmpty
+    @ManyToOne
+    @JoinColumn(name = "receiver_id")
+    private User receiver;
+
+    @Column(name = "mess_text")
     private String text;
 
     private Date date;
-
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
 }

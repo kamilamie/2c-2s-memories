@@ -14,8 +14,6 @@ import ru.itis.models.User;
 import ru.itis.services.UserService;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -41,7 +39,6 @@ public class EditProfileController {
             Map<String, String> errors = bindingResult.getFieldErrors().stream()
                     .collect( Collectors.toMap(FieldError::getField,
                             FieldError::getDefaultMessage, (e1, e2) -> e1));
-            System.out.println(errors);
             model.addAttribute("errors", errors);
             return "edit-profile";
         }

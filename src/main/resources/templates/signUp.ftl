@@ -63,7 +63,8 @@
 
                     <span class="fa fa-google-plus-official fa-2x"></span>
                     &nbsp;&nbsp;
-                    <span class="fa fa-vk fa-2x"></span>
+                    <a href="https://oauth.vk.com/authorize?client_id=7146050&display=popup&redirect_uri=http://localhost:8080/signUp&response_type=token&revoke=1&v=5.101">
+                        <span class="fa fa-vk fa-2x"></span></a>
 
                 </div>
                 <div class="text-center mt-5">
@@ -80,6 +81,7 @@
 <script type="text/javascript" src="/js/lib/popper.min.js"></script>
 <script type="text/javascript" src="/js/registration-validate.js"></script>
 <script type="text/javascript" src="/js/lib/bootstrap.js"></script>
+<script type="text/javascript" src="/js/vk-auth.js"></script>
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

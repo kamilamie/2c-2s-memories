@@ -10,8 +10,6 @@
 <body>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white p-3 border-bottom">
     <div class="container">
-
-
         <a class="navbar-brand" style="font-size: 25px" href="#">Memories</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
                 aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">

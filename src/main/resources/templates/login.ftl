@@ -54,7 +54,10 @@
 
             <span class="fa fa-google-plus-official fa-2x"></span>
             &nbsp;&nbsp;
-            <span class="fa fa-vk fa-2x"></span>
+
+                <a href="https://oauth.vk.com/authorize?client_id=7146050&display=popup&redirect_uri=http://localhost:8080/login&response_type=token&revoke=1&v=5.101">
+                    <span class="fa fa-vk fa-2x"></span></a>
+
 
         </div>
         <div class="text-center mt-5">
@@ -67,5 +70,6 @@
 
 <script type="text/javascript" src="/js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/show-hide-password.js"></script>
+<script type="text/javascript" src="/js/vk-login.js"></script>
 </body>
 </html>

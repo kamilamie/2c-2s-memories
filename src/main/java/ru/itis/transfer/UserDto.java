@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import ru.itis.models.Post;
 import ru.itis.models.User;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class UserDto {
     private List<User> followers;
     private List<User> followings;
     private Boolean isPrivate;
+    private List<Post> posts;
 
     private static String UPLOADED_FOLDER;
 
@@ -37,6 +39,7 @@ public class UserDto {
                 .followers(user.getFollowers())
                 .followings(user.getFollowings())
                 .isPrivate(user.getIsPrivate())
+                .posts(user.getPosts())
                 .build();
     }
     @Value("${my.files-url}")

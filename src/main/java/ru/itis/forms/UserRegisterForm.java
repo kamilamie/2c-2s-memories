@@ -1,5 +1,7 @@
 package ru.itis.forms;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +14,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserRegisterForm {
 
     @Size(min=2, max=20, message = "input size should be between 2 and 20")

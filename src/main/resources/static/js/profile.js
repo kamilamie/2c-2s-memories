@@ -2,7 +2,7 @@ function toggleActivePill(event) {
     var link_id = event.currentTarget.id;
     if (link_id === "followers-btn")
         $('#followers-tab').tab('show');
-    else if(link_id === "followings-btn") $('#followings-tab').tab('show');
+    else if (link_id === "followings-btn") $('#followings-tab').tab('show');
 }
 
 function follow(event) {
@@ -56,3 +56,8 @@ function follow(event) {
         }
     });
 }
+
+$('#file').on('change', function () {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+})

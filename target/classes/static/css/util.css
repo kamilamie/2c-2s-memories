@@ -101,6 +101,14 @@
     object-fit: cover;
     vertical-align: middle;
 }
+.round-img-xs{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Радиус скругления */
+    border: 2px solid white; /* Параметры рамки */
+    object-fit: cover;
+    vertical-align: middle;
+}
 
 /* EDIT PROFILE PAGE ///////////////////////////////////////////*/
 .list-group .active {

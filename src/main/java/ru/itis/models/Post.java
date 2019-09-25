@@ -38,6 +38,6 @@ public class Post {
     private Double coordinateX;
     private Double coordinateY;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Like> likes;
 }
